@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home
+    </title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Unishop - Universal E-Commerce Template">
+    <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
+    <meta name="author" content="Rokaux">
+    <!-- Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Favicon and Apple Icons-->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'touch-icon-iphone.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'touch-icon-ipad.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'touch-icon-iphone-retina.png' %}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{% static 'touch-icon-ipad-retina.png' %}">
+    <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="{% static 'css/vendor.min.css' %}">
+    <!-- Main Template Styles-->
+    <link id="mainStyles" rel="stylesheet" media="screen" href="{% static 'css/styles.min.css' %}">
+    <!-- Modernizr-->
+    <script src=" {% static 'js/modernizr.min.js' %}"></script>
+  </head>
+  <!-- Body-->
+  <body>
+  
+    <!-- Off-Canvas Mobile Menu-->
+    <div class="offcanvas-container" id="mobile-menu">
+       
+      <nav class="offcanvas-menu">
+        <ul class="menu">
+          <li class="has-children active"><span><a href="{% url 'main:main_page' %}"><span>Home</span></a></span> 
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="has-children"><span><a href="{% url 'user:account' %}"><span>Account</span></a></span>
+            
+          </li>
+            {% else %}
+            
+            <ul class="list-unstyled">
+          <li class="has-children active"><a href="{% url 'user:login' %}"> login  </a></li>
+          <li class="has-children active"><a href="{% url 'user:authorization' %}"> Sigin</a></li>
+        </ul>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Navbar-->
+    <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+    <header class="navbar navbar-sticky">
+      <!-- Search-->
+      <form class="site-search" method="get">
+        <input type="text" name="site_search" placeholder="Type to search...">
+        <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
+      </form>
+      <div class="site-branding">
+        <div class="inner">
+          
+          <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+          
+        </div>
+      </div>
+      <!-- Main Navigation-->
+      <nav class="site-menu">
+        <ul>
+          <li class="has-megamenu active"><a href="{% url 'main:main_page' %}"><span>Home</span></a>
+           
+          </li>
+
+          
+
+          
+          {% if request.user.is_authenticated %}
+
+
+
+
+
+
+          <li><a href="{% url 'user:account' %}"><span>Account</span></a>
+            <ul class="sub-menu">
+                <li><a href="{% url 'main:logout' %}"> Logout </a></li>
+                
+            </ul>
+          </li>
+
+
+
+
+
+
+
+
+          
+          {% else %}
+         
+            <li class="has-children active"><a href="{% url 'user:login' %}"><span> login </span> </a></li>
+            <li class="has-children active"><a href="{% url 'user:authorization' %}"> <span>Sigin</span></a></li>
+          
+            {% endif %}
+
+          
+          
+        </ul>
+      </nav>
+      <!-- Toolbar-->
+      <div class="toolbar">
+        <div class="inner">
+          <div class="tools">
+            <div class="search"><i class="icon-search"></i></div>
+
+            
+           
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Off-Canvas Wrapper-->
+    
+
+
+
+
+    {% block content %}
+    {% endblock content %}
+
+
+
+
+
+    <footer class="site-footer">
+        
+      </footer>
+
+
+
+
+
+
+
+
+
+    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
+    <!-- Backdrop-->
+    <div class="site-backdrop"></div>
+    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="{% static 'js/vendor.min.js' %}"></script>
+    <script src="{% static 'js/scripts.min.js' %}"></script>
+  </body>
+</html>

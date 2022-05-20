@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+    {% block content %}
+    
+ 
+    <!-- Off-Canvas Wrapper-->
+    <div class="offcanvas-wrapper">
+     
+     
+     
+
+
+     <h6 class="text-muted text-normal text-uppercase padding-top-2x">Все пользователи</h6>
+     <hr class="margin-bottom-1x">
+     <div class="table-responsive">
+       <table class="table">
+         <thead>
+           <tr>
+             
+             <th>ФИО</th>
+             <th>Скилы</th>
+           </tr>
+         </thead>
+         <tbody>
+            
+            {% for i in list_users %}
+            <tr>
+            <td> {{i.0}} {{i.1}} {{i.2}} </td>
+        
+            {% for elem in list2 %}
+                {% if i.0 == elem.0 %}
+                <td> {{elem.1}} {{elem.2}} </td>
+            
+            {% endif %}
+           {% endfor %}
+            {% endfor %}
+        </tr>
+       
+        
+       
+         </tbody>
+       </table>
+     </div>
+    </div>
+        
+    
+        
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-md-center pt-5">
+
+    <div class="col-md-7 d-flex justify-content-between">
+        
+      <h1 class="h4"></h1>
+      {% if request.user.is_authenticated %}
+      {% for i in skill %}  <div>
+        <a href="{% url 'main:favourite_add' %}" class="">add</a>
+      </div>
+
+      {{i.to_tag_skill}}/{{i.value}}
+      
+      {% endfor %}
+    
+      {% else %}
+
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
